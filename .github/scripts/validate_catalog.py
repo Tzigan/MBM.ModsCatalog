@@ -60,10 +60,11 @@ def main() -> None:
         except urllib.error.URLError as ex:
             fail(f"cannot fetch manifest URL: {url} — {ex.reason}")
 
-        try:
-            manifest = json.loads(body.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError) as ex:
-            fail(f"author manifest is not valid JSON: {url} — {ex}")
+try:
+    # use utf-8-sig to strip a leading UTF-8 BOM if present
+    manifest = json.loads(body.decode("utf-8-sig"))
+except (UnicodeDecodeError, json.JSONDecodeError) as ex:
+    fail(f"author manifest is not valid JSON: {url} — {ex}")
 
         if not isinstance(manifest.get("mods"), list) or len(manifest["mods"]) == 0:
             fail(f'author manifest has no "mods" array: {url}')
