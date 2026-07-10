@@ -5,6 +5,7 @@
     "SystemExtensionLib": 10,
     "TimeScaleOptimizer": 5,
     "MoreGraphicAttachments": 1,
-    "BusinessPartnerConfig": 1
+    "BusinessPartnerConfig": 1,
+    "CustomAssetTextResource": 1
   }
 }
