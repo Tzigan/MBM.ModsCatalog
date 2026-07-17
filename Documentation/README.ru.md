@@ -7,6 +7,10 @@
 
 **Этот репозиторий не хранит файлы модов** — только список URL на манифесты в репозиториях авторов.
 
+MBM.ModLoader поддерживает архивы **`.zip` / `.rar` / `.7z`**, опциональные поля мультиязычного changelog (`changelogEn` / `changelogRu` / `changelogZh`) и сложные моды с установкой в корень игры.
+
+Счётчики установок хранятся в [`stats.json`](https://github.com/Tzigan/MBM.ModsCatalog/blob/stats/stats.json) в orphan-ветке **`stats`** (только этот файл; общей истории с `main` нет; обновляется GitHub Actions).
+
 ## Файлы
 
 | Файл | Назначение |

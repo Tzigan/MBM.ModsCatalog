@@ -15,7 +15,7 @@ Create `manifest.json` in your repository. See [manifest.example.json](manifest.
 | `id` | DLL file name without extension (e.g. `MyMod`) |
 | `name` | Display name |
 | `version` | Mod version |
-| `package` | Direct HTTPS link to a `.zip` or `.rar` archive |
+| `package` | Direct HTTPS link to a `.zip`, `.rar`, or `.7z` archive |
 
 ### Recommended fields
 
@@ -24,10 +24,15 @@ Create `manifest.json` in your repository. See [manifest.example.json](manifest.
 | `description` | Text shown in the Explore tab |
 | `updated` | Update date: **`dd.MM.yyyy`** (e.g. `15.06.2026`) |
 | `modPortal` | Mod page URL |
-| `changelog` | Raw URL to `CHANGELOG.md` |
+| `changelog` | Fallback raw URL to `CHANGELOG.md` (single-language mods / older loaders) |
+| `changelogEn` | Optional English changelog raw URL |
+| `changelogRu` | Optional Russian changelog raw URL |
+| `changelogZh` | Optional Simplified Chinese changelog raw URL |
 | `icon` | PNG URL (up to 512×512) |
 | `categories` | Category IDs in English (see below) |
 | `tags` | Tag IDs in English (see below) |
+
+If **two or more** of `changelogEn` / `changelogRu` / `changelogZh` are set, the in-game **Changelog** dialog shows **EN / RU / 中文** buttons (default matches the game language). Keep `changelog` as a fallback URL when possible.
 
 ### Categories (`categories`)
 
@@ -39,8 +44,9 @@ Create `manifest.json` in your repository. See [manifest.example.json](manifest.
 
 ### Mod archive
 
-- **`.zip`** and **`.rar`** are supported.
+- **`.zip`**, **`.rar`**, and **`.7z`** are supported.
 - If the archive contains a `Mods/` folder, files are installed directly into the game's `Mods` folder.
+- **Complex mods:** if the archive contains game files (`MonsterBlackMarket_Data`, loader files `MBM.ModLoader/`, `winhttp.dll`, `doorstop_config.ini`, `*.entrypoint`), MBM.ModLoader installs into the **game root**. In-use game files are staged and applied after the game closes (a restart is required).
 - The `package` field must be a **direct** download link.
 
 ### Install statistics

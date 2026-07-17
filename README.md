@@ -7,6 +7,8 @@ The in-game **Explore** tab loads this repository and fetches author `manifest.j
 
 **This repository does not host mod files** — only links to manifests in author repositories.
 
+MBM.ModLoader supports mod archives **`.zip` / `.rar` / `.7z`**, optional multilingual changelog fields (`changelogEn` / `changelogRu` / `changelogZh`), and complex mods that install into the game root.
+
 Install/download counts are stored in [`stats.json`](https://github.com/Tzigan/MBM.ModsCatalog/blob/stats/stats.json) on the orphan **`stats`** branch (only this file; no shared history with `main`; updated by GitHub Actions).
 
 ## Quick start
